@@ -1,7 +1,7 @@
 import axios from "axios";
 import { CompanySearch } from "./company";
 
-interface SearchResponse {
+export interface SearchResponse {
   data: CompanySearch[];
 }
 
