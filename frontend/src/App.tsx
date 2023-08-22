@@ -7,7 +7,7 @@ import { CompanySearch } from "./company";
 
 function App() {
   const [search, setSearch] = useState<string>("");
-  const [searchResult, setSearchResult] = useState<CompanySearch[]>();
+  const [searchResult, setSearchResult] = useState<CompanySearch[]>([]);
   const [serverError, setServerError] = useState<string | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <Search onClick={onClick} search={search} handleChange={handleChange} />
-      <CardList />
+      <CardList searchResults={searchResult} />
       {serverError && <div>Unable to connect to API</div>}
       {/* {serverError ? <div>Connected</div> : <div>Unable to connect to api</div>} */}
     </div>
