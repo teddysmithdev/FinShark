@@ -12,7 +12,6 @@ function App() {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
-    console.log(e);
   };
 
   const onClick = async (e: SyntheticEvent) => {
@@ -23,12 +22,13 @@ function App() {
     } else if (Array.isArray(result.data)) {
       setSearchResult(result.data);
     }
-    console.log(searchResult);
   };
   return (
     <div className="App">
       <Search onClick={onClick} search={search} handleChange={handleChange} />
       <CardList />
+      {serverError && <div>Unable to connect to API</div>}
+      {/* {serverError ? <div>Connected</div> : <div>Unable to connect to api</div>} */}
     </div>
   );
 }
