@@ -18,8 +18,13 @@ function App() {
 
   const onPortfolioCreate = (e: any) => {
     e.preventDefault();
-    console.log(e);
-    //Arrays are tricky to update. Please wait till next video.
+    //DO NOT DO THIS
+    // portfolioValues.push(event.target[0].value)
+    // setPortfolioValues(portfolioValues);
+    const exists = portfolioValues.find((value) => value === e.target[0].value);
+    if (exists) return;
+    const updatedPortfolio = [...portfolioValues, e.target[0].value];
+    setPortfolioValues(updatedPortfolio);
   };
 
   const onSearchSubmit = async (e: SyntheticEvent) => {
@@ -40,7 +45,7 @@ function App() {
         search={search}
         handleSearchChange={handleSearchChange}
       />
-      <ListPortfolio />
+      <ListPortfolio portfolioValues={portfolioValues} />
       <CardList
         searchResults={searchResult}
         onPortfolioCreate={onPortfolioCreate}
