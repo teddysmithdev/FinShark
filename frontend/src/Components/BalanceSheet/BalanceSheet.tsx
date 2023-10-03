@@ -10,24 +10,24 @@ type Props = {};
 
 const config = [
   {
-    label: "Cash",
+    label: <div className="font-bold">Total Assets</div>,
+    render: (company: CompanyBalanceSheet) => company.totalAssets,
+  },
+  {
+    label: "Current Assets",
+    render: (company: CompanyBalanceSheet) => company.totalCurrentAssets,
+  },
+  {
+    label: "Total Cash",
     render: (company: CompanyBalanceSheet) => company.cashAndCashEquivalents,
   },
   {
-    label: "Inventory",
-    render: (company: CompanyBalanceSheet) => company.inventory,
+    label: "Property & equipment",
+    render: (company: CompanyBalanceSheet) => company.propertyPlantEquipmentNet,
   },
   {
-    label: "Other Current Assets",
-    render: (company: CompanyBalanceSheet) => company.otherCurrentAssets,
-  },
-  {
-    label: "Minority Interest",
-    render: (company: CompanyBalanceSheet) => company.minorityInterest,
-  },
-  {
-    label: "Other Non-Current Assets",
-    render: (company: CompanyBalanceSheet) => company.otherNonCurrentAssets,
+    label: "Intangible Assets",
+    render: (company: CompanyBalanceSheet) => company.intangibleAssets,
   },
   {
     label: "Long Term Debt",
@@ -36,6 +36,26 @@ const config = [
   {
     label: "Total Debt",
     render: (company: CompanyBalanceSheet) => company.otherCurrentLiabilities,
+  },
+  {
+    label: <div className="font-bold">Total Liabilites</div>,
+    render: (company: CompanyBalanceSheet) => company.totalLiabilities,
+  },
+  {
+    label: "Current Liabilities",
+    render: (company: CompanyBalanceSheet) => company.totalCurrentLiabilities,
+  },
+  {
+    label: "Long-Term Debt",
+    render: (company: CompanyBalanceSheet) => company.longTermDebt,
+  },
+  {
+    label: "Long-Term Income Taxes",
+    render: (company: CompanyBalanceSheet) => company.otherLiabilities,
+  },
+  {
+    label: "Stakeholder's Equity",
+    render: (company: CompanyBalanceSheet) => company.totalStockholdersEquity,
   },
   {
     label: "Retained Earnings",
