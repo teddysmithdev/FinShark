@@ -7,8 +7,8 @@ import CompanyProfile from "../Components/CompanyProfile/CompanyProfile";
 import IncomeStatement from "../Components/IncomeStatement/IncomeStatement";
 import DesignGuide from "../Pages/DesignGuide/DesignGuide";
 import BalanceSheet from "../Components/BalanceSheet/BalanceSheet";
-import CashflowStatement from "../Components/CashflowStatement/CashflowStatement";
 import HistoricalDividend from "../Components/HistoricalDividend/HistoricalDividend";
+import CashflowStatement from "../Components/CashFlowStatement/CashflowStatement";
 
 export const router = createBrowserRouter([
   {
