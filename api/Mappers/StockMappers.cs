@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Dtos.Stock;
 using api.Models;
 
@@ -9,6 +6,7 @@ namespace api.Mappers
 {
     public static class StockMappers
     {
+        // Maps a Stock model to a StockDto
         public static StockDto ToStockDto(this Stock stockModel)
         {
             return new StockDto
@@ -17,13 +15,13 @@ namespace api.Mappers
                 Symbol = stockModel.Symbol,
                 CompanyName = stockModel.CompanyName,
                 Purchase = stockModel.Purchase,
-                LastDiv = stockModel.LastDiv,
+                Lastdiv = stockModel.Lastdiv,
                 Industry = stockModel.Industry,
-                MarketCap = stockModel.MarketCap,
-                Comments = stockModel.Comments.Select(c => c.ToCommentDto()).ToList()
+                MarketCap = stockModel.MarketCap
             };
         }
 
+        // Maps a CreateStockRequestDto to a Stock model
         public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto)
         {
             return new Stock
@@ -31,22 +29,9 @@ namespace api.Mappers
                 Symbol = stockDto.Symbol,
                 CompanyName = stockDto.CompanyName,
                 Purchase = stockDto.Purchase,
-                LastDiv = stockDto.LastDiv,
+                Lastdiv = stockDto.Lastdiv,
                 Industry = stockDto.Industry,
                 MarketCap = stockDto.MarketCap
-            };
-        }
-
-        public static Stock ToStockFromFMP(this FMPStock fmpStock)
-        {
-            return new Stock
-            {
-                Symbol = fmpStock.symbol,
-                CompanyName = fmpStock.companyName,
-                Purchase = (decimal)fmpStock.price,
-                LastDiv = (decimal)fmpStock.lastDiv,
-                Industry = fmpStock.industry,
-                MarketCap = fmpStock.mktCap
             };
         }
     }
